@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 11e7bdc710d91b8478c401c4f67dbb9e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _QP: {fileID: 2800000, guid: d568f6c8ef3e12b4ea6d891c8df1e782, type: 3}
+  - _TextureSample2: {fileID: 2800000, guid: eb3638842632a1342b0a2f7fee0ff125, type: 3}
+  - _LOL_N: {fileID: 2800000, guid: 10f675f7950167a4b9b05da6a2701e0b, type: 3}
+  - _lambert1_Normal_OpenGL: {fileID: 2800000, guid: 7af4d64fe8f5c304dbfc9d5b2b8da6e5,
+      type: 3}
+  - _lambert1_Emissive: {fileID: 2800000, guid: 554eafa42fe0d1c44884d903761f9fd4,
+      type: 3}
+  - _YJ: {fileID: 2800000, guid: 18cc35cec72e0ff4ca455f09f8fe336f, type: 3}
+  - _TextureSample0: {fileID: 2800000, guid: 98f87ead152690043bc16a35fe34b8ab, type: 3}
+  - _TextureSample1: {fileID: 2800000, guid: eb3638842632a1342b0a2f7fee0ff125, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

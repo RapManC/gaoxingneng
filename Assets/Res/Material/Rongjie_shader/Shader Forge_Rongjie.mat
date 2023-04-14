@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Forge_Rongjie
+  m_Shader: {fileID: 4800000, guid: a254a71dd411e6f4b8382e55ce502488, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _node_1101:
+        m_Texture: {fileID: 2800000, guid: f8ff8b40639756941b347da7a0d1df50, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_2829:
+        m_Texture: {fileID: 2800000, guid: f8ff8b40639756941b347da7a0d1df50, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_8577:
+        m_Texture: {fileID: 2800000, guid: f8ff8b40639756941b347da7a0d1df50, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _Opacity_Clip: 0.8
+    - _Opacity_Clip_Range: 0.9
+    - _Speed: 0.73
+    - _Vertex_Offset_Speed: 0.5
+    - _node_3370: 0
+    - _node_3425: 0
+    - _node_3999: 1
+    - _node_4915: -1.46
+    - _node_564: 0.69
+    - _node_584: 0.005
+    - _node_5984: 0.923533
+    - _node_8898: 0.005
+    m_Colors:
+    - _node_6987: {r: 0.6509434, g: 0.0663707, b: 0, a: 1}
+    - _node_7826: {r: 1, g: 0.6668702, b: 0.023584902, a: 1}

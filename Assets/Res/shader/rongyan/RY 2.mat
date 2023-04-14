@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RY 2
+  m_Shader: {fileID: 4800000, guid: 044589472b17de8439941b7a3773accb, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _node_3934:
+        m_Texture: {fileID: 2800000, guid: 47bec2dc37f4d2e4bbc4821920e12766, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4283:
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4332:
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_565:
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_8216:
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _node_1243: 0
+    - _node_4006: 0.002
+    - _node_4808: 0
+    - _node_5065: -0.27
+    - _node_5768: 0
+    - _node_8200: 0.42
+    - _node_8241: 0.67
+    - _node_9170: 0
+    - _node_9419: 1
+    m_Colors:
+    - _node_2867: {r: 0.8784314, g: 0.23921569, b: 0, a: 1}
+    - _node_3249: {r: 1.9550397, g: 0.945987, b: 0.0180188, a: 1}
+    - _node_5947: {r: 1, g: 0, b: 0, a: 1}
+    - _node_778: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>江西理工-高性能稀土永磁材料制备虚拟仿真实验</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+
+<body onresize="Reset()" ,scroll=no, style="overflow:hidden">
+  <div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas"></canvas>
+    <div id="loader">
+      <div class="banner_bg"></div>
+      <img class="logo" src="TemplateData/logo2.png" id="unity-logo"></img>
+      <p class="webglname">高性能稀土永磁材料制备虚拟仿真实验</p>
+
+      <div id="unity-progress-bar-empty" class="progress">
+        <div id="unity-progress-bar-full" class="full"></div>
+      </div>
+      <span class="percentage" id='percentage'>0%</span>
+      <div class="spinner" id="spinner" style="visibility: hidden">
+      </div>
+      <div id="trips" class="trips">
+        <div class="flex-y-c" style="width: 100%">
+          <span> 推荐使用GoogleChrome或者Firefox浏览器。<br></span>
+          <span> 温馨提醒：软件正在加载中，加载时间可能会受网速、计算机性能等影响，请您耐心等待。<br></span>
+          <span>
+            本实验基于最新的HTML5和WebGL技术开发，使用虚拟3D场景构建。建议使用、<a
+              href="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BCC801782-12A4-2DD1-8871-EC58DB6A2574%7D%26lang%3Dzh-CN%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Ddefaultbrowser/update2/installers/ChromeSetup.exe"
+              target="_blank" class="downloadtext">GoolgeChrome浏览器</a>打开
+          </span>
+          <span>如使用其他浏览器（如360等谷歌内核浏览器）请切换成极速模式，去掉鼠标手势，开启硬件加速。</span>
+          <span>如遇到加载长时间不进入实验的情况，请刷新页面，重新加载！</span>
+        </div>
+      </div>
+    </div>
+    <button id="fullScreenButton" onclick="ToggleFullScreen()"
+      style="background-image: url(TemplateData/fullScreen_on.png);"></button>
+  </div>
+  <script>
+    var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/GaoxingnengWeb.loader.js";
+    var config = {
+        dataUrl: buildUrl + "/GaoxingnengWeb.data",
+        frameworkUrl: buildUrl + "/GaoxingnengWeb.framework.js",
+        codeUrl: buildUrl + "/GaoxingnengWeb.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+        productName: "GaoxingnengWeb",
+      productVersion: "1.0",
+    };
+  </script>
+  <script src="TemplateData/index.js"></script>
+</body>
+
+</html>

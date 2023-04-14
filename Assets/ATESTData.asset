@@ -1,0 +1,348 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ccf2c1562130a446a5ffdc8e2c37bc3, type: 3}
+  m_Name: ATESTData
+  m_EditorClassIdentifier: 
+  username: test
+  title: "\u9AD8\u6027\u80FD\u7A00\u571F\u6C38\u78C1\u6750\u6599\u5236\u5907\u865A\u62DF\u4EFF\u771F\u5B9E\u9A8C"
+  status: 1
+  score: 84
+  startTime: 1635324808779
+  endTime: 1635325819929
+  timeUsed: 1011
+  appid: 159
+  originId: test1630133192522
+  steps:
+  - seq: 1
+    title: "\u9009\u62E9\u6750\u6599\u724C\u53F7"
+    startTime: 1635324816758
+    endTime: 1635324820188
+    timeUsed: 3
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u9009\u62E9\u9700\u8981\u5236\u5907\u7684\u6750\u6599\u724C\u53F7\uFF0C\u89C2\u5BDF\u4E0D\u540C\u724C\u53F7\u6027\u80FD\u95F4\u7684\u5DEE\u522B"
+    remarks: 
+  - seq: 2
+    title: "\u5143\u7D20\u6210\u5206\u51B3\u65AD"
+    startTime: 1635324820188
+    endTime: 1635324838413
+    timeUsed: 18
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u6C38\u78C1\u6750\u6599\u6210\u5206\u9009\u53D6\u5224\u65AD\uFF0C\u6DF1\u5165\u7406\u89E3\u7A00\u571F\u5143\u7D20\u5BF9\u7684\u5F71\u54CD\u89C4\u5F8B"
+    remarks: 
+  - seq: 3
+    title: "\u914D\u7F6E\u7A00\u571F\u5143\u7D20\u8D28\u91CF"
+    startTime: 1635324838413
+    endTime: 1635324856435
+    timeUsed: 18
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8BA1\u7B97\u5404\u7C7B\u6C38\u78C1\u6750\u6599\u7684\u7A00\u571F\u5143\u7D20\u8D28\u91CF\u767E\u5206\u6570"
+    remarks: 
+  - seq: 4
+    title: "\u771F\u7A7A\u901F\u51DD\u7089\u8C03\u8282\u52A0\u70ED\u6E29\u5EA6"
+    startTime: 1635324924588
+    endTime: 1635324927778
+    timeUsed: 3
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u64CD\u7EB5\u771F\u7A7A\u901F\u51DD\u7089\u63A7\u5236\u53F0\u8BBE\u7F6E\u539F\u6599\u6EB6\u89E3\u6E29\u5EA61400-1500\u2103"
+    remarks: 
+  - seq: 5
+    title: "\u771F\u7A7A\u901F\u51DD\u7089\u8C03\u8282\u8F6C\u901F"
+    startTime: 1635324950081
+    endTime: 1635324952990
+    timeUsed: 2
+    expectTime: 60
+    maxScore: 100
+    score: 125
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u64CD\u7EB5\u771F\u7A7A\u901F\u51DD\u7089\u63A7\u5236\u53F0\u8BBE\u7F6E\u7834\u788E\u6405\u62CC\u8F6E\u8F6C\u901F40-50r/min"
+    remarks: 
+  - seq: 6
+    title: "\u771F\u7A7A\u901F\u51DD\u7089\u8584\u7247\u539A\u5EA6"
+    startTime: 1635324979413
+    endTime: 1635325016777
+    timeUsed: 37
+    expectTime: 60
+    maxScore: 100
+    score: 33
+    repeatCount: 2
+    evaluation: "\u4E0D\u5408\u683C"
+    scoringModel: "\u68C0\u6D4B\u771F\u7A7A\u901F\u51DD\u7089\u751F\u4EA7\u8584\u7247\u539A\u5EA6\u63A7\u5236\u57280.25-0.35mm"
+    remarks: 
+  - seq: 7
+    title: "\u771F\u7A7A\u901F\u51DD\u7089\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635324856435
+    endTime: 1635325031606
+    timeUsed: 175
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u7ED3\u5408\u771F\u7A7A\u901F\u51DD\u7089\u5DE5\u6BB5\u6240\u6709\u53C2\u6570\u8BBE\u7F6E\u5F97\u5230\u6B64\u9636\u6BB5\u7684\u751F\u4EA7\u80FD\u8017"
+    remarks: 
+  - seq: 8
+    title: "\u6C22\u7834\u7089\u8C03\u8282\u53CD\u5E94\u6E29\u5EA6"
+    startTime: 1635325229955
+    endTime: 1635325233063
+    timeUsed: 3
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 9
+    title: "\u6C22\u7834\u7089\u8C03\u8282\u53CD\u5E94\u538B\u529B"
+    startTime: 1635325250194
+    endTime: 1635325252011
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 10
+    title: "\u6C22\u7834\u7089\u8C03\u8282\u7834\u788E\u65F6\u95F4"
+    startTime: 1635325263551
+    endTime: 1635325266467
+    timeUsed: 2
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 11
+    title: "\u6C22\u7834\u7089\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635325031606
+    endTime: 1635325325146
+    timeUsed: 293
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 12
+    title: "\u9776\u5F0F\u6C14\u6D41\u78E8\u8C03\u8282\u7834\u788E\u538B\u529B"
+    startTime: 1635325351787
+    endTime: 1635325354126
+    timeUsed: 2
+    expectTime: 60
+    maxScore: 100
+    score: 125
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 13
+    title: "\u9776\u5F0F\u6C14\u6D41\u78E8\u8C03\u8282\u5206\u9009\u8F6E\u8F6C\u901F"
+    startTime: 1635325365200
+    endTime: 1635325367008
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 14
+    title: "\u9776\u5F0F\u6C14\u6D41\u78E8\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635325325146
+    endTime: 1635325429771
+    timeUsed: 104
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 15
+    title: "\u53D6\u5411\u6210\u578B\u8C03\u8282\u538B\u5236\u538B\u529B"
+    startTime: 1635325477525
+    endTime: 1635325484452
+    timeUsed: 6
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 16
+    title: "\u53D6\u5411\u6210\u578B\u8C03\u8282\u78C1\u573A\u5F3A\u5EA6"
+    startTime: 1635325477525
+    endTime: 1635325484452
+    timeUsed: 6
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 17
+    title: "\u53D6\u5411\u6210\u578B\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635325429770
+    endTime: 1635325551217
+    timeUsed: 121
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 18
+    title: "\u70E7\u7ED3\u7089\u8C03\u8282\u70E7\u7ED3\u771F\u7A7A\u5EA6"
+    startTime: 1635325569353
+    endTime: 1635325571226
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 19
+    title: "\u70E7\u7ED3\u7089\u8C03\u8282\u70E7\u7ED3\u6E29\u5EA6"
+    startTime: 1635325656296
+    endTime: 1635325658419
+    timeUsed: 2
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 20
+    title: "\u70E7\u7ED3\u7089\u8C03\u8282\u70E7\u7ED3\u65F6\u95F4"
+    startTime: 1635325658419
+    endTime: 1635325665568
+    timeUsed: 7
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 21
+    title: "\u70E7\u7ED3\u7089\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635325551217
+    endTime: 1635325715710
+    timeUsed: 164
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 22
+    title: "\u56DE\u706B\u5DE5\u6BB5\u8C03\u8282\u4E00\u7EA7\u56DE\u706B\u6E29\u5EA6"
+    startTime: 1635325727361
+    endTime: 1635325730574
+    timeUsed: 3
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 23
+    title: "\u56DE\u706B\u5DE5\u6BB5\u8C03\u8282\u4E00\u7EA7\u56DE\u706B\u65F6\u95F4"
+    startTime: 1635325730574
+    endTime: 1635325731759
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 100
+    repeatCount: 1
+    evaluation: "\u4F18"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 24
+    title: "\u56DE\u706B\u5DE5\u6BB5\u8C03\u8282\u4E8C\u7EA7\u56DE\u706B\u6E29\u5EA6"
+    startTime: 1635325731781
+    endTime: 1635325733208
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 25
+    title: "\u56DE\u706B\u5DE5\u6BB5\u8C03\u8282\u4E8C\u7EA7\u56DE\u706B\u65F6\u95F4"
+    startTime: 1635325733208
+    endTime: 1635325734954
+    timeUsed: 1
+    expectTime: 60
+    maxScore: 100
+    score: 75
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 26
+    title: "\u56DE\u706B\u5DE5\u6BB5\u751F\u4EA7\u80FD\u8017"
+    startTime: 1635325715710
+    endTime: 1635325780430
+    timeUsed: 64
+    expectTime: 60
+    maxScore: 100
+    score: 99
+    repeatCount: 1
+    evaluation: "\u826F"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
+  - seq: 27
+    title: "\u6027\u80FD\u68C0\u6D4B"
+    startTime: 1635325780430
+    endTime: 1635325788863
+    timeUsed: 8
+    expectTime: 60
+    maxScore: 100
+    score: 20
+    repeatCount: 1
+    evaluation: "\u4E0D\u5408\u683C"
+    scoringModel: "\u8D4B\u5206\u6A21\u578B"
+    remarks: 
