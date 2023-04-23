@@ -17,6 +17,7 @@ public class JiancheModelClickControl : MonoBehaviour
     {
         if (isClick)
         {
+            MainSceneGuide.Instance.StopAutoMove();
             isClick = false;
             highlightEffect.highlighted = false;
             switch (name)

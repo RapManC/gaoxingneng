@@ -40,6 +40,7 @@ public class Tuoche : MonoBehaviour
             UIManage.Instance.SetHint("倒料结束，控制台点击升温按键");
             AudioManage.Instance.PlayMusicSource("倒料结束，控制台点击升温按键", 0.5f);
             UIManage.Instance.SetTishiPos("QPLKongzhitai");
+            MainSceneGuide.Instance.AutoMoveByIndex(3);
             UIManage.Instance.SetButtonIntera(GetManager.Instance.QPLKongzhitai.Qingporu_ButtonPather.Find("Shengwen").GetComponent<Button>(), true);
         }));
     }

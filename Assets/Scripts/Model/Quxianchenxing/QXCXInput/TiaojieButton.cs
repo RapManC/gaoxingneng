@@ -9,6 +9,7 @@ public class TiaojieButton : MonoBehaviour
     {
         if (!qXCXInputControl.IsStartTiaojie)
             return;
+        MainSceneGuide.Instance.StopAutoMove();
         switch (name)
         {
             case "Jia_1":

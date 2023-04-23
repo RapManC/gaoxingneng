@@ -55,9 +55,11 @@ public class QingporuTestManlag :MonoBehaviour
         {
             GetManager.Instance.QPLKongzhitai.ShowCanvas();
             UIManage.Instance.SetTishiPos("SNLBaopian");
+            MainSceneGuide.Instance.AutoMoveByIndex(2);
             UIManage.Instance.SetHint("前往提示地点，点击物料框进行加料操作");
             AudioManage.Instance.PlayMusicSource("前往提示地点，点击物料框进行加料操作", 0.5f);
             tuiche.transform.Find("Kuangkuang/QPLKuan").GetComponent<ModelClick>().SetMayClick();
+
         }));
         GetManager.Instance.ControlFlow.SetTestProgress(0);
 
@@ -154,6 +156,7 @@ public class QingporuTestManlag :MonoBehaviour
     /// </summary>
     public void Chouzhenkong()
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         AudioManager.SetAudio(AudioManager.QingporuAudio, "抽真空");
         couzhenkongPipeFlow.Flow(4, null);
         UIManage.Instance.changeDataManager.StartChange(101.33f, 0, ChuozhenkongTime, "当前压强", "Pa", () =>
@@ -164,6 +167,7 @@ public class QingporuTestManlag :MonoBehaviour
             AudioManager.QingporuAudio.Pause();
             couzhenkongPipeFlow.Stop();
             GetManager.Instance.ControlFlow.SetTestProgress(3);
+            Canvas3Dto2D.Instance.SetCanvasActive(true);
         });
     }
     /// <summary>
@@ -286,6 +290,7 @@ public class QingporuTestManlag :MonoBehaviour
     /// </summary>
     public void Jiangwen()
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         UIManage.Instance.SetHint("冷却已启动，等待冷却中..");
         AudioManage.Instance.PlayMusicSource("冷却已启动，等待冷却中..", 0.5f);
         if (Application.platform != RuntimePlatform.WebGLPlayer)
@@ -309,6 +314,7 @@ public class QingporuTestManlag :MonoBehaviour
             UIManage.Instance.SetHint("冷却完毕，前往出料口点击出料门进行出料操作");
             AudioManage.Instance.PlayMusicSource("冷却完毕，前往出料口点击出料门进行出料操作", 0.5f);
             UIManage.Instance.SetTishiPos("QPLShangliao");
+            MainSceneGuide.Instance.AutoMoveByIndex(4);
             transform.Find("Qingporu/Qingporu_Men/QPLMen").GetComponent<ModelClick>().SetMayClick();
             GetManager.Instance.ControlFlow.SetTestProgress(7);
         });

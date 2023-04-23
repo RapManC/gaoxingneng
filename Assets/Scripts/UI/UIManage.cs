@@ -463,23 +463,31 @@ public class UIManage : MonoBehaviour
     {
         xuanzhechenfenList.Clear();
         xuanzhechenfenToggleList.Clear();
+
+        List<string> duoyuyuansu = new List<string>();
         foreach (Toggle toggle in chenfenList)
         {
             if (toggle.isOn)
             {
                 xuanzhechenfenToggleList.Add(toggle);
-                xuanzhechenfenList.Add(toggle.transform.Find("Label").GetComponent<Text>().text);
+                string str = toggle.transform.Find("Label").GetComponent<Text>().text;
+                if (str != "钙(Ca)")
+                    xuanzhechenfenList.Add(str);
+                else
+                    duoyuyuansu.Add(str);
             }
         }
+
         List<string> quesaozhutiyaunshu = new List<string>();
         foreach(Toggle t in zhutichenfenList)
         {
             string str = Getquesaoyaunshu(t.transform.Find("Label").GetComponent<Text>().text);
-            if(str!="")
-            quesaozhutiyaunshu.Add(str);
+            if(str!="" && str != "钙(Ca)")
+                quesaozhutiyaunshu.Add(str);
         }
+
         List<string> quesaoxiyouyaunshu = new List<string>();
-        foreach(Toggle t in xituchenfenList)
+        foreach (Toggle t in xituchenfenList)
         {
             string str = Getquesaoyaunshu(t.transform.Find("Label").GetComponent<Text>().text);
             if (str != "")
@@ -494,6 +502,7 @@ public class UIManage : MonoBehaviour
         }
         bool isXuanzhezuti= (quesaozhutiyaunshu.Count==0);
         bool isXuanzheXitu= (quesaoxiyouyaunshu.Count<2);
+        bool isDuoYu = (duoyuyuansu.Count > 0);
         string hintStr = "";
         if (!isXuanzhezuti)
         {
@@ -511,9 +520,18 @@ public class UIManage : MonoBehaviour
                 hintStr += str + "、";
             }
         }
+        if (isDuoYu)
+        {
+
+            hintStr += "\n使用了无效的金属元素：";
+            foreach (string str in duoyuyuansu)
+            {
+                hintStr += str + "、";
+            }
+        }
         hintStr=hintStr.TrimEnd('、');
         hintStr+="。";
-        if (!isXuanzhezuti || !isXuanzheXitu)
+        if (!isXuanzhezuti || !isXuanzheXitu || isDuoYu)
         {
             ShowMistakeHint(hintStr,shiyan_UITran.Find("SelectPanels_UI/SelectPanel_UI (1)").gameObject);
             return;
@@ -900,7 +918,9 @@ public class UIManage : MonoBehaviour
     {
         Transform target = GetManager.Instance.Root.Find("TishiTagetPos/" + targetPosname);
         if (target)
+        {
             _tishiEffect.position = target.position;
+        }
         _tishiEffect.gameObject.SetActive(true);
     }
     /// <summary>

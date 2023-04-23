@@ -77,7 +77,7 @@ public class UIMag : MonoBehaviour
         {
             print(i);
             text.text = wenzxi[i];
-            yield return new  WaitForSeconds(17f);
+            yield return new  WaitForSeconds(14f);
             i++;
             if (i == 3)
             {

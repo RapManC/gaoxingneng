@@ -47,6 +47,7 @@ public class HuihuoTestManlag :MonoBehaviour
         UIManage.Instance.SetHint("现在进行回火操作，前往点击回火炉门进行装料。");
         AudioManage.Instance.PlayMusicSource("现在进行回火操作，前往点击回火炉门进行装料。", 0.5f);
         UIManage.Instance.SetTishiPos("HHLShangliao");
+        MainSceneGuide.Instance.AutoMoveByIndex(15);
         men.GetComponent<HuihuoModelClick>().SetModelClick();
         GetManager.Instance.ControlFlow.SetTestProgress(0);
 
@@ -81,10 +82,12 @@ public class HuihuoTestManlag :MonoBehaviour
     /// </summary>
     public void Huihuo()
     {
+        Canvas3Dto2D.Instance.SetCameraTrans(4);
         GetManager.Instance.ControlFlow.SetTestProgress(1);
         UIManage.Instance.SetHint("前往回火炉控制台调节回火参数");
         AudioManage.Instance.PlayMusicSource("前往回火炉控制台调节回火参数", 0.5f);
         UIManage.Instance.SetTishiPos("HHLTiaojie");
+        MainSceneGuide.Instance.AutoMoveByIndex(16);
         SetData1();
         //void SetData1()
         //{
@@ -180,6 +183,7 @@ public class HuihuoTestManlag :MonoBehaviour
         
         void huihuo()
         {
+            Canvas3Dto2D.Instance.SetCanvasActive(false);
             GetManager.Instance.ControlFlow.SetTestProgress(2);
             SetLight(3, 7);
             AudioManager.SetAudio(AudioManager.CanvasAudio, "加热");

@@ -66,7 +66,7 @@ public class JiangxiSciencesAbutment : MonoBehaviour
             if (webRequest.isNetworkError || webRequest.isHttpError)
             {
                 response = webRequest.error;
-                Debug.LogError("获取题库请求失败 : " + response);
+                Debug.LogError("获取题库请求失败 : " + response); 
             }
             else
             {

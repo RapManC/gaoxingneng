@@ -19,6 +19,7 @@ public class TestProcessControl : BaseMonoBehaviour<TestProcessControl>
     /// <param name="gongduanType"></param>
     public void TiaozhuanTest(GongduanType gongduanType)
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         InputManage._Instance.ResetInput();
         StartCoroutine(UIManage.Instance.enumerator(0, () =>
         {

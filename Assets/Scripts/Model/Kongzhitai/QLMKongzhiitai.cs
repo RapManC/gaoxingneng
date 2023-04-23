@@ -42,12 +42,14 @@ public class QLMKongzhiitai : MonoBehaviour
     public void ShowCanvas()
     {
         Canvas_3D.gameObject.SetActive(true);
+        Canvas3Dto2D.Instance.SetCameraTrans(2);
     }
     /// <summary>
     /// 加氮气
     /// </summary>
     public void Onjiadanqi()
     {
+        MainSceneGuide.Instance.StopAutoMove();
         UIManage.Instance.SetButtonIntera(Qingporu_ButtonPather.Find("Jiadanqi").GetComponent<Button>(), false);
         qiliumoTestManlag.Jiadanqi();
     }

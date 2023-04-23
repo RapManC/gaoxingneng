@@ -29,6 +29,7 @@ public class QiliumoTestManlag : MonoBehaviour
         UIManage.Instance.SetHint("现在进行气流磨工段，提示地点点击真空瓶进行上料操作。");
         AudioManage.Instance.PlayMusicSource("现在进行气流磨工段，提示地点点击真空瓶进行上料操作。", 0.5f);
         UIManage.Instance.SetTishiPos("QLMShangliao");
+        MainSceneGuide.Instance.AutoMoveByIndex(5);
         transform.Find("TuoChe/QLMZhenkongqing1").GetComponent<ModelClick>().SetMayClick();
         GetManager.Instance.QLMKongzhiitai.ShowCanvas();
         GetManager.Instance.ControlFlow.SetTestProgress(0);
@@ -57,6 +58,7 @@ public class QiliumoTestManlag : MonoBehaviour
                 UIManage.Instance.SetHint("倒料结束，请前往控制台点击加氮气按键。");
                 AudioManage.Instance.PlayMusicSource("倒料结束，请前往控制台点击加氮气按键。", 0.5f);
                 UIManage.Instance.SetTishiPos("QLMKongzhitai");
+                MainSceneGuide.Instance.AutoMoveByIndex(6);
                 _texiaoPoshui.gameObject.SetActive(true);
                 _texiaoShangliao.gameObject.SetActive(false);
                 UIManage.Instance.SetButtonIntera(GetManager.Instance.QLMKongzhiitai.Qingporu_ButtonPather.Find("Jiadanqi").GetComponent<Button>(), true);
@@ -117,6 +119,7 @@ public class QiliumoTestManlag : MonoBehaviour
         //        }));
         //    });
 
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         Step step = ScoreManager._Instance.GetStep(StepType.靶式气流磨调节分选轮转速);
         step.startTime = ScoreManager.GetCurveTimeLong();
 

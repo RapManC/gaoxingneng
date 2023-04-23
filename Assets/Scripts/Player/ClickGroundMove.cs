@@ -55,17 +55,17 @@ public class ClickGroundMove : MonoBehaviour
                 RayClickMove(); 
                 break;
             case MoveType.WSAD:
-                //WASDMove();
+                WASDMove();
                 break;
             case MoveType.WSADAndClick:
                 RayClickMove();
-                //WASDMove();
+                WASDMove();
                 break;
             case MoveType.HongGui:
                 HongGui();
                 break;
         }
-        ManualRot();
+        //ManualRot();
         //print(transform.localRotation);
     }
     private void OnCollisionStay(Collision collision)
@@ -110,6 +110,7 @@ public class ClickGroundMove : MonoBehaviour
     }
     private void WASDMove()
     {
+
         //if (shihsidistabce < 1.2f)
         //{
             float _horizontal = Input.GetAxis("Horizontal");
@@ -117,11 +118,11 @@ public class ClickGroundMove : MonoBehaviour
             tragetPos = transform.position;
             direction = transform.forward * _vertical + transform.right * _horizontal;
             direction.y = 0;
-            Vector3 norma = direction.normalized;
-            if (norma != Vector3.zero)
+            direction.x = 0;
+            if (direction != Vector3.zero)
             {
             //CC.Move(Time.deltaTime * Speed * direction.normalized);
-            CC.Move(this.transform.TransformDirection(norma)*Time.deltaTime);
+                CC.Move(this.transform.TransformDirection(direction) *Time.deltaTime);
             }
         //}
     }

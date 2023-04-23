@@ -15,6 +15,7 @@ public class ModelClick : MonoBehaviour
         if (isMayClick)
         {
             isMayClick = false;
+            MainSceneGuide.Instance.StopAutoMove();
             switch (name)
             {
                 case "QiGuan1_Pingshen":

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMoveTo : MonoBehaviour
 {
     //摄像机
@@ -22,16 +20,10 @@ public class PlayerMoveTo : MonoBehaviour
 
     //最大俯角
     public float maxDepressionAngle = 90;
-
     //最大仰角
     public float maxElevationAngle = 25;
-
-    //角色的刚体
-    private Rigidbody rigidbody;
-
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -47,6 +39,7 @@ public class PlayerMoveTo : MonoBehaviour
         //Jump();
     }
 
+    #region 手动位移
     void Move()
     {
         //通过键盘获取竖直、水平轴的值，范围在-1到1
@@ -99,4 +92,5 @@ public class PlayerMoveTo : MonoBehaviour
     //        rigidbody.AddForce(Vector3.up * jumpForce);
     //    }
     //}
+    #endregion
 }

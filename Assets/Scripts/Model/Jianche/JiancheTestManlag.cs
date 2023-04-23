@@ -31,6 +31,7 @@ public class JiancheTestManlag : MonoBehaviour
         lanzi.gameObject.SetActive(true);
         GetManager.Instance.ControlFlow.Jingxingzong(9);
         UIManage.Instance.SetTishiPos("Jianche");
+        MainSceneGuide.Instance.AutoMoveByIndex(17);
         UIManage.Instance.SetHint("现在进行检测操作，点击物料放入检测机中。");
         AudioManage.Instance.PlayMusicSource("现在进行检测操作，点击物料放入检测机中。", 0.5f);
         lanzi.GetComponent<JiancheModelClickControl>().SetClick();

@@ -26,9 +26,10 @@ public class ShuningruTestManlag : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        particle1 = transform.Find("ShuningLu/Panzi/Texiao/jiaoban1").GetComponent<ParticleSystem>();
-        particle2 = transform.Find("ShuningLu/Panzi/Texiao/jiaoban2").GetComponent<ParticleSystem>();
-        particle3 = transform.Find("ShuningLu/Panzi/Texiao/jiaoban3").GetComponent<ParticleSystem>();
+        Transform texiao = transform.Find("ShuningLu/Panzi/Texiao");
+        particle1 = texiao.GetChild(1).GetComponent<ParticleSystem>();
+        particle2 = texiao.GetChild(0).GetComponent<ParticleSystem>();
+        particle3 = texiao.GetChild(2).GetComponent<ParticleSystem>();
     }
     private void Start()
     {
@@ -43,6 +44,7 @@ public class ShuningruTestManlag : MonoBehaviour
         GetManager.Instance.ControlFlow.Jingxingzong(3);
         GetManager.Instance.ControlFlow.SetTestProgress(0);
         UIManage.Instance.SetTishiPos("SNLKongzhitai");
+        MainSceneGuide.Instance.AutoMoveByIndex(0);
 
 
         Step step = ScoreManager._Instance.GetStep(StepType.真空速凝炉生产能耗);
@@ -77,6 +79,7 @@ public class ShuningruTestManlag : MonoBehaviour
     //开盖启动
     public void KaigaiQidong()
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         Transform dianji = GetManager.Instance.ShuningLuParent.Find("Diaoji");
         StartCoroutine(UIManage.Instance.enumerator(0, () =>
         {
@@ -131,6 +134,7 @@ public class ShuningruTestManlag : MonoBehaviour
             GetManager.Instance.Canvas.Find("Shiyan_UI/MiniCanmera_UI").gameObject.SetActive(false);
             GetManager.Instance.ShuningLuParent.Find("CailiaoLonghua").gameObject.SetActive(true);
             UIManage.Instance.SetButtonIntera(SuningruButtons.Find("Cailiaolonglian").GetComponent<Button>(), true);
+            Canvas3Dto2D.Instance.SetCanvasActive(true);
         }));
     }
     //加热启动
@@ -318,6 +322,7 @@ public class ShuningruTestManlag : MonoBehaviour
     }
     public void Fenglenqidong()
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         StartCoroutine(UIManage.Instance.enumerator(0, () =>
         {
             UIManage.Instance.SetHint("风冷启动已启动，等待冷却中..");
@@ -348,6 +353,8 @@ public class ShuningruTestManlag : MonoBehaviour
         AudioManage.Instance.PlayMusicSource("冷却完毕，点击屏幕开启“气动板阀开关”。", 0.5f);
         UIManage.Instance.SetButtonIntera(GetManager.Instance.SNLKongzhitai.Shuningru_ButtonPather.Find("Qidongbankaigaun").GetComponent<Button>(), true);
         GetManager.Instance.ControlFlow.SetTestProgress(10);
+        Canvas3Dto2D.Instance.SetCanvasActive(true);
+
     }
     public void Qidongban()
     {
@@ -359,6 +366,7 @@ public class ShuningruTestManlag : MonoBehaviour
         AudioManager.SetAudio(AudioManager.ShuningluAudio, "开门声");
         GetManager.Instance.ControlFlow.SetTestProgress(11);
         UIManage.Instance.SetTishiPos("SNLBaopian");
+        MainSceneGuide.Instance.AutoMoveByIndex(1);
     }
     
     /// <summary>

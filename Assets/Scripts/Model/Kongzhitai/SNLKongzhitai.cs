@@ -34,6 +34,7 @@ public class SNLKongzhitai : MonoBehaviour
     }
     public void Kaiji()
     {
+        MainSceneGuide.Instance.StopAutoMove();
         transform.Find("Canvas_3D").gameObject.SetActive(true);
         AudioManager.SetAudio(AudioManager.ShuningluAudio, "轰鸣声");
         StartCoroutine(UIManage.Instance.enumerator(3, () => {AudioManager.ShuningluAudio.Pause(); }));
@@ -41,6 +42,9 @@ public class SNLKongzhitai : MonoBehaviour
         GetManager.Instance.ControlFlow.SetTestProgress(1);
         UIManage.Instance.SetHint("设备启动完成，点击控制台屏幕'自动放料'按键按键。");
         AudioManage.Instance.PlayMusicSource("设备启动完成，点击控制台屏幕'自动放料'按键。", 0.5f);
+        UIManage.Instance.SetButtonIntera(Shuningru_ButtonPather.Find("Zhidongfangliao").GetComponent<Button>(), true);
+
+        Canvas3Dto2D.Instance.SetCameraTrans(0);
     }
     /// <summary>
     /// 设置速凝炉按键
@@ -117,6 +121,7 @@ public class SNLKongzhitai : MonoBehaviour
     {
         UIManage.Instance.SetButtonIntera(Shuningru_ButtonPather.Find("Qidongbankaigaun").GetComponent<Button>(), false);
         ShuningruTestManlag.Instance.Qidongban();
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
     }
     #endregion
 }

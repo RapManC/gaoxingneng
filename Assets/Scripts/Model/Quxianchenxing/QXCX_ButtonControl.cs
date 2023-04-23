@@ -18,6 +18,7 @@ public class QXCX_ButtonControl : MonoBehaviour
         {
             if (!isClick)
             {
+                MainSceneGuide.Instance.StopAutoMove();
                 isClick = true;
                 Debug.Log(name+"被点击");
                 GetComponent<HighlightEffect>().highlighted = false;

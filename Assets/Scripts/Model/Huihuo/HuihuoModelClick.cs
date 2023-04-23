@@ -11,6 +11,7 @@ public class HuihuoModelClick : MonoBehaviour
     {
         if (IsClick)
         {
+            MainSceneGuide.Instance.StopAutoMove();
             IsClick = false;
             GetComponent<HighlightEffect>().highlighted = false;
             if (!IsZuangliao)

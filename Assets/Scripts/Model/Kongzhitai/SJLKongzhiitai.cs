@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SJLKongzhiitai : MonoBehaviour
@@ -20,15 +18,15 @@ public class SJLKongzhiitai : MonoBehaviour
         {
             if (tran.GetComponent<ParameterControl>())
             {
-               UIManage_3D._Instance.ParameterControlList.Add(tran.GetComponent<ParameterControl>());
+                UIManage_3D._Instance.ParameterControlList.Add(tran.GetComponent<ParameterControl>());
             }
         }
     }
 
 
     private void OnDestroy()
-{
-    UIManage_3D._Instance.KongzhitaiPingmuList.Remove(gameObject);
+    {
+        UIManage_3D._Instance.KongzhitaiPingmuList.Remove(gameObject);
         foreach (Transform tran in transform.Find("Canvas_3D/Content/Input_UI"))
         {
             if (tran.GetComponent<ParameterControl>())
@@ -37,15 +35,17 @@ public class SJLKongzhiitai : MonoBehaviour
             }
         }
     }
-public void ShowCanvas()
+    public void ShowCanvas()
     {
         Canvas_3D.gameObject.SetActive(true);
+        Canvas3Dto2D.Instance.SetCameraTrans(3);
     }
     /// <summary>
     /// 抽真空
     /// </summary>
     public void OnChouzhenkong()
     {
+        MainSceneGuide.Instance.StopAutoMove();
         UIManage.Instance.SetButtonIntera(Saojielu_ButtonPather.Find("Chouzhenkong").GetComponent<Button>(), false);
         shaojierLuTestManlag.Chouzhenkong();
     }
@@ -62,6 +62,7 @@ public void ShowCanvas()
     /// </summary>
     public void OnShebeileiyunshu()
     {
+        MainSceneGuide.Instance.StopAutoMove();
         UIManage.Instance.SetButtonIntera(Saojielu_ButtonPather.Find("Shebeileiyunshu").GetComponent<Button>(), false);
         shaojierLuTestManlag.Shebeileiyunshu();
     }

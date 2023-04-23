@@ -28,6 +28,7 @@ public class ShaojierLuTestManlag : MonoBehaviour
         tuoChe.gameObject.SetActive(true);
         UIManage.Instance.SetHint("现在进行烧结炉工段实验操作，前往速凝炉加料处点击物料框进行加料操作。");
         UIManage.Instance.SetTishiPos("SJLShangliao");
+        MainSceneGuide.Instance.AutoMoveByIndex(11);
         transform.Find("Tuoche/SJLLanzhi").GetComponent<ModelClick>().SetMayClick();
         GetManager.Instance.ControlFlow.SetTestProgress(0);
 
@@ -58,6 +59,7 @@ public class ShaojierLuTestManlag : MonoBehaviour
                 UIManage.Instance.SetHint("装料完成，控制台点击抽真空按键");
                 AudioManage.Instance.PlayMusicSource("装料完成，控制台点击抽真空按键", 0.5f);
                 UIManage.Instance.SetTishiPos("SJLKongzhitai");
+                MainSceneGuide.Instance.AutoMoveByIndex(12);
                 UIManage.Instance.SetButtonIntera(GetManager.Instance.SJLKongzhiitai.Saojielu_ButtonPather.Find("Chouzhenkong").GetComponent<Button>(), true);
                 GetManager.Instance.ControlFlow.SetTestProgress(1);
             });
@@ -155,6 +157,7 @@ public class ShaojierLuTestManlag : MonoBehaviour
         UIManage.Instance.SetHint("拆包装结束，前往控制台点击设备内运输按键");
         AudioManage.Instance.PlayMusicSource("拆包装结束，前往控制台点击设备内运输按键", 0.5f);
         UIManage.Instance.SetTishiPos("SJLKongzhitai");
+        MainSceneGuide.Instance.AutoMoveByIndex(13);
     }
     public void Shebeileiyunshu()
     {
@@ -217,6 +220,7 @@ public class ShaojierLuTestManlag : MonoBehaviour
         //}
         void SetTime()
         {
+            Canvas3Dto2D.Instance.SetCanvasActive(false);
             Step step3 = ScoreManager._Instance.GetStep(StepType.烧结炉调节烧结时间);
             step3.startTime = ScoreManager.GetCurveTimeLong();
             UIManage_3D._Instance.StartInput(GongduanType.烧结, "烧结时间", () =>
@@ -237,12 +241,14 @@ public class ShaojierLuTestManlag : MonoBehaviour
                     AudioManager.CanvasAudio.Pause();
                     UIManage.Instance.SetButtonIntera(GetManager.Instance.SJLKongzhiitai.Saojielu_ButtonPather.Find("Jiangwen").GetComponent<Button>(), true);
                     GetManager.Instance.ControlFlow.SetTestProgress(6);
+                    Canvas3Dto2D.Instance.SetCanvasActive(true);
                 });
             });
         }
     }
     public void Jiangwen()
     {
+        Canvas3Dto2D.Instance.SetCanvasActive(false);
         UIManage.Instance.SetHint("正在降温...");
         AudioManage.Instance.PlayMusicSource("正在降温", 0.5f);
         SetLight(0, 7);
@@ -258,6 +264,7 @@ public class ShaojierLuTestManlag : MonoBehaviour
             AudioManage.Instance.PlayMusicSource("降温完成，前往出料口点击出料门进行出料运输", 0.5f);
             GetManager.Instance.ControlFlow.SetTestProgress(7);
             UIManage.Instance.SetTishiPos("SJLChuliao");
+            MainSceneGuide.Instance.AutoMoveByIndex(14);
             transform.Find("Models/SJLMen").GetComponent<ModelClick>().SetMayClick();
         }));
     }

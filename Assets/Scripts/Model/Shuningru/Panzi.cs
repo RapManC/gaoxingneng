@@ -15,6 +15,7 @@ public class Panzi : MonoBehaviour
     {
         if (index == 0)
         {
+            MainSceneGuide.Instance.StopAutoMove();
             List<GameObject> biaoPianList = new List<GameObject>();
             foreach (Transform temp in this.transform)
             {

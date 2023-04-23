@@ -51,12 +51,12 @@ public class HTTP : MonoBehaviour
     [Obsolete]
     void Start()
     {
-        if (IsFirst&&!IsTest)
+        if (IsFirst && !IsTest)
         {
             Init();
             InitExperimentalData();
         }
-    
+
     }
     void InitExperimentalData()
     {
@@ -85,6 +85,9 @@ public class HTTP : MonoBehaviour
                 // GetWebGLToken();
                 break;
         }
+
+        //OnGetAllOptionList();
+
     }
     [ContextMenu("写入lIabJson")]
     public void WritelIabData()
@@ -164,36 +167,35 @@ public class HTTP : MonoBehaviour
         return json;
     }
 
-   
+
     public void GetEditorToken()
     {
-        //OnGetAllOptionList();
-        Debug.Log("调用登录方法");
-        Debug.Log(new Uri(IP + "/api/v1/login"));
-        HTTPRequest request = new HTTPRequest(new Uri(IP + "/api/v1/login"), HTTPMethods.Post, (req, resp) =>//首先建立一个请求地址和类型根据接口文档确定
-        {
-            try
-            {
-                Debug.Log("登录回包：" + resp.DataAsText);
-                JsonClass1 jsonClass = JsonUtility.FromJson<JsonClass1>(resp.DataAsText);//从返回的json数据中提取对应的数据返回JsonClassl类型的对象
-                UserID = jsonClass.data.user_info.user_id;
-                UserName = jsonClass.data.user_info.user_name;
-                Access_Token = jsonClass.data.token;
-                OrginTime = DateTime.Now;
-                SetMaskLoad.Instance.StartMaskText("获取成功", false, null, SetMaskLoad.LoadState.Win, 1, 0.1f, (obj => obj.SetActive(false)));
-                OnGetAllOptionList();
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-                SetMaskLoad.Instance.StartMaskText("用户数据获取异常，请重试......", true, Start, SetMaskLoad.LoadState.Error);
-            }
-        });
-        request.AddField("user_id", "admin");
-        request.AddField("user_pwd", "zghc2021");
-        request.Send();//开始处理请求
+        OnGetAllOptionList();
+        //Debug.Log("调用登录方法");
+        //HTTPRequest request = new HTTPRequest(new Uri(IP + "/api/v1/login"), HTTPMethods.Post, (req, resp) =>//首先建立一个请求地址和类型根据接口文档确定
+        //{
+        //    try
+        //    {
+        //        Debug.Log("登录回包：" + resp.DataAsText);
+        //        JsonClass1 jsonClass = JsonUtility.FromJson<JsonClass1>(resp.DataAsText);//从返回的json数据中提取对应的数据返回JsonClassl类型的对象
+        //        UserID = jsonClass.data.user_info.user_id;
+        //        UserName = jsonClass.data.user_info.user_name;
+        //        Access_Token = jsonClass.data.token;
+        //        OrginTime = DateTime.Now;
+        //        SetMaskLoad.Instance.StartMaskText("获取成功", false, null, SetMaskLoad.LoadState.Win, 1, 0.1f, (obj => obj.SetActive(false)));
+        //        OnGetAllOptionList();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Debug.Log(e);
+        //        SetMaskLoad.Instance.StartMaskText("用户数据获取异常，请重试......", true, Start, SetMaskLoad.LoadState.Error);
+        //    }
+        //});
+        //request.AddField("user_id", "admin");
+        //request.AddField("user_pwd", "zghc2021");
+        //request.Send();//开始处理请求
     }
-    
+
     void GetPCToken()
     {
         OrginTime = DateTime.Now;
@@ -225,7 +227,7 @@ public class HTTP : MonoBehaviour
         OrginTime = DateTime.Now;
         var jsonData = JsonUtility.FromJson<WebGLTokenData>(json);
         Debug.Log(jsonData);
-        if(jsonData != null)
+        if (jsonData != null)
             Debug.Log($"jsondata.user_id={jsonData.user_id},jsonData.user_name={jsonData.user_name},jsonData.access_token={jsonData.access_token}");
         UserID = jsonData.user_id;
         UserName = jsonData.user_name;
@@ -310,7 +312,7 @@ public class HTTP : MonoBehaviour
              () => SetMaskLoad.Instance.StartMaskText("答题数据提交失败，请重试......", true, () => SubmitProblem(), SetMaskLoad.LoadState.Error)
               );
         }
-        
+
     }
 
     #region Ilab网数据

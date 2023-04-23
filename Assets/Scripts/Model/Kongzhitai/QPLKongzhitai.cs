@@ -40,6 +40,7 @@ public void ShowCanvas()
     {
         GetManager.Instance.ControlFlow.Jingxingzong(4);
         Canvas_3D.gameObject.SetActive(true);
+        Canvas3Dto2D.Instance.SetCameraTrans(1);
     }
     #region 氢破炉按键操作
 
@@ -48,6 +49,7 @@ public void ShowCanvas()
     /// </summary>
     public void OnQPShengwen()
     {
+        MainSceneGuide.Instance.StopAutoMove();
         qingporuTestManlag.Shengwen();
         UIManage.Instance.SetButtonIntera(Qingporu_ButtonPather.Find("Shengwen").GetComponent<Button>(), false);
     }

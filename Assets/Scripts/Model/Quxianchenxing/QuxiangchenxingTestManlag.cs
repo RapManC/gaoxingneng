@@ -27,6 +27,7 @@ public class QuxiangchenxingTestManlag :MonoBehaviour
         UIManage.Instance.SetHint("前往取向成型工段点击真空瓶进行上料。");
         transform.Find("TuoChe/QiGuan1/QiGuan1_Pingshen").GetComponent<ModelClick>().SetMayClick();
         UIManage.Instance.SetTishiPos("QXCXShangliao");
+        MainSceneGuide.Instance.AutoMoveByIndex(7);
         GetManager.Instance.ControlFlow.SetTestProgress(0);
 
         Step step = ScoreManager._Instance.GetStep(StepType.取向成型生产能耗);
@@ -74,6 +75,7 @@ public class QuxiangchenxingTestManlag :MonoBehaviour
             UIManage.Instance.SetHint("设备内运输完成,进行称重操作");
             UIManage.Instance.SetHint("前往窗口点击提示开关,开始称重");
             UIManage.Instance.SetTishiPos("QXCXChuangkou");
+            MainSceneGuide.Instance.AutoMoveByIndex(8);
             jiaohuModel.Find("Buttons/Yunshong").GetComponent<QXCX_ButtonControl>().SetIsMayClick();
         }));
     }
@@ -98,6 +100,7 @@ public class QuxiangchenxingTestManlag :MonoBehaviour
                 //    SetTEnd(a);
                 //});
                 UIManage.Instance.SetTishiPos("QXCXChuangkou");
+                MainSceneGuide.Instance.AutoMoveByIndex(9);
 
                 Step step = ScoreManager._Instance.GetStep(StepType.取向成型调节压制压力);
                 step.startTime = ScoreManager.GetCurveTimeLong();
@@ -197,6 +200,7 @@ public class QuxiangchenxingTestManlag :MonoBehaviour
                 UIManage.Instance.SetHint("抽真空完成，点击右侧门板进行成品运输");
                 AudioManage.Instance.PlayMusicSource("抽真空完成，点击右侧门板进行成品运输", 0.5f);
                 UIManage.Instance.SetTishiPos("QXCXYunshu");
+                MainSceneGuide.Instance.AutoMoveByIndex(10);
                 transform.Find("JiaohuModel/Men").GetComponent<ModelClick>().SetMayClick();
                 GetManager.Instance.ControlFlow.SetTestProgress(4);
             }));
