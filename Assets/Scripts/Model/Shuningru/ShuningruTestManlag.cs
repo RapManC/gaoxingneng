@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using HighlightPlus;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public class ShuningruTestManlag : MonoBehaviour
 {
@@ -223,6 +224,7 @@ public class ShuningruTestManlag : MonoBehaviour
         StartCoroutine(UIManage.Instance.enumerator(12, () =>
         {
             shunilu.Find("Poshui1").GetComponent<ModelRotControl>().isRot = true;
+            shunilu.Find("Particle System").gameObject.SetActive(true);
             GameObject.FindObjectOfType<BopianGenerateManlag>().IsStartGenerate = true;
             transform.Find("ShuningLu/Longqi/Yemian/zhuti").transform.DOScaleY(0, 12).OnComplete(()=> transform.Find("ShuningLu/Longqi/Yemian/zhuti").gameObject.SetActive(false)) ;
         }));
@@ -235,6 +237,7 @@ public class ShuningruTestManlag : MonoBehaviour
             StartCoroutine(UIManage.Instance.enumerator(10f, () => {
                 transform.Find("ShuningLu/Hezi").GetComponent<Animator>().Play("Hezi Animation_Dao");
                 GameObject.FindObjectOfType<BopianGenerateManlag>().IsStartGenerate = false;
+                shunilu.Find("Particle System").gameObject.SetActive(false);
             }));
             UIManage.Instance.SetButtonIntera(GetManager.Instance.SNLKongzhitai.Shuningru_ButtonPather.Find("Zidongcongqing").GetComponent<Button>(), true);
         }));
@@ -252,6 +255,7 @@ public class ShuningruTestManlag : MonoBehaviour
         StartCoroutine(UIManage.Instance.enumerator(0, () =>
         {
             GameObject.FindObjectOfType<BopianGenerateManlag>().IsStartGenerate = false;
+            shunilu.Find("Particle System").gameObject.SetActive(false);
             UIManage.Instance.SetHint("充氢气已启动，请点击“自动破碎”按键。");
             AudioManage.Instance.PlayMusicSource("充氢气已启动，请点击“自动破碎”按键。", 0.5f);
             UIManage.Instance.SetButtonIntera(GetManager.Instance.SNLKongzhitai.Shuningru_ButtonPather.Find("Zidongposhui").GetComponent<Button>(), true);
@@ -272,6 +276,9 @@ public class ShuningruTestManlag : MonoBehaviour
         particle1.maxParticles = 700;
         particle1.gameObject.SetActive(false);
         particle1.gameObject.SetActive(true);
+        particle1.transform.DOScale(0.7f, 20f);
+        particle3.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        particle3.transform.DOScale(0.6f, 20f);
 
         AudioManager.SetAudio(AudioManager.ShuningluAudio, "搅拌");
         shunilu.Find("Poshui2").GetComponent<ModelRotControl>().isRot = true;
@@ -310,6 +317,7 @@ public class ShuningruTestManlag : MonoBehaviour
         shunilu.Find("Poshui3").GetComponent<ModelRotControl>().isRot = false;
         shunilu.Find("Poshui2 (1)").GetComponent<ModeRot>().isRot = false;
         shunilu.Find("Poshui3 (1)").GetComponent<ModeRot>().isRot = false;
+        shunilu.Find("Particle System").gameObject.SetActive(false);
         GetManager.Instance.ShuningLuParent.Find("PingpangMoveBiaopianCollde").GetComponent<PingpangMoveColldeControl>().isMove = false;
         GameObject.FindObjectOfType<BopianGenerateManlag>().IsStartGenerate = false;
         StartCoroutine(UIManage.Instance.enumerator(0, () =>
@@ -329,22 +337,29 @@ public class ShuningruTestManlag : MonoBehaviour
             AudioManage.Instance.PlayMusicSource("风冷启动已启动，等待冷却中..",0.5f);
             Resources.Load<Material>("Material/SuiXie 1").SetColor("_EmissionColor", new Color(73, 73, 73) / 255);
             Resources.Load<Material>("Material/Xiaobaopian").SetColor("_EmissionColor", new Color(73, 73, 73) / 255);
-            if (Application.platform != RuntimePlatform.WebGLPlayer)
+            //if (Application.platform != RuntimePlatform.WebGLPlayer)
+            //{
+            //    UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
+            //    StartCoroutine(UIManage.Instance.enumerator(7, () =>
+            //    {
+            //        UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
+            //        FenglenStop();
+            //    }));
+            //}
+            //else
+            //{
+            //    UIManage.Instance.changeDataManager.StartChange(0, 120, 7, "冷却时间", "min", () =>
+            //    {
+            //        FenglenStop();
+            //    });
+            //}
+
+            UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
+            StartCoroutine(UIManage.Instance.enumerator(7, () =>
             {
-                UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
-                StartCoroutine(UIManage.Instance.enumerator(7, () =>
-                {
-                    UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
-                    FenglenStop();
-                }));
-            }
-            else
-            {
-                UIManage.Instance.changeDataManager.StartChange(0, 120, 7, "冷却时间", "min", () =>
-                {
-                    FenglenStop();
-                });
-            }
+                UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
+                FenglenStop();
+            }));
         }));
     }
     public void FenglenStop()

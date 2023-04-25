@@ -82,12 +82,12 @@ public class HuihuoTestManlag :MonoBehaviour
     /// </summary>
     public void Huihuo()
     {
-        Canvas3Dto2D.Instance.SetCameraTrans(4);
         GetManager.Instance.ControlFlow.SetTestProgress(1);
         UIManage.Instance.SetHint("前往回火炉控制台调节回火参数");
         AudioManage.Instance.PlayMusicSource("前往回火炉控制台调节回火参数", 0.5f);
         UIManage.Instance.SetTishiPos("HHLTiaojie");
-        MainSceneGuide.Instance.AutoMoveByIndex(16);
+        MainSceneGuide.Instance.AutoMoveByIndex(16, 0);
+        Canvas3Dto2D.Instance.SetCameraTrans(4);
         SetData1();
         //void SetData1()
         //{

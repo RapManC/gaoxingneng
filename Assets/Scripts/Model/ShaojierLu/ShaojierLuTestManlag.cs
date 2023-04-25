@@ -59,7 +59,8 @@ public class ShaojierLuTestManlag : MonoBehaviour
                 UIManage.Instance.SetHint("装料完成，控制台点击抽真空按键");
                 AudioManage.Instance.PlayMusicSource("装料完成，控制台点击抽真空按键", 0.5f);
                 UIManage.Instance.SetTishiPos("SJLKongzhitai");
-                MainSceneGuide.Instance.AutoMoveByIndex(12);
+                MainSceneGuide.Instance.AutoMoveByIndex(12, 0);
+                Canvas3Dto2D.Instance.SetCameraTrans(3);
                 UIManage.Instance.SetButtonIntera(GetManager.Instance.SJLKongzhiitai.Saojielu_ButtonPather.Find("Chouzhenkong").GetComponent<Button>(), true);
                 GetManager.Instance.ControlFlow.SetTestProgress(1);
             });
@@ -156,8 +157,8 @@ public class ShaojierLuTestManlag : MonoBehaviour
         GetManager.Instance.ControlFlow.SetTestProgress(4);
         UIManage.Instance.SetHint("拆包装结束，前往控制台点击设备内运输按键");
         AudioManage.Instance.PlayMusicSource("拆包装结束，前往控制台点击设备内运输按键", 0.5f);
-        UIManage.Instance.SetTishiPos("SJLKongzhitai");
-        MainSceneGuide.Instance.AutoMoveByIndex(13);
+        //UIManage.Instance.SetTishiPos("SJLKongzhitai");
+        //MainSceneGuide.Instance.AutoMoveByIndex(13);
     }
     public void Shebeileiyunshu()
     {
@@ -220,11 +221,11 @@ public class ShaojierLuTestManlag : MonoBehaviour
         //}
         void SetTime()
         {
-            Canvas3Dto2D.Instance.SetCanvasActive(false);
             Step step3 = ScoreManager._Instance.GetStep(StepType.烧结炉调节烧结时间);
             step3.startTime = ScoreManager.GetCurveTimeLong();
             UIManage_3D._Instance.StartInput(GongduanType.烧结, "烧结时间", () =>
             {
+                Canvas3Dto2D.Instance.SetCanvasActive(false);
                 UIManage.Instance.SetHint("你设置的烧结时间为" + UIManage_3D._Instance.GetNowValue() + "h,正在升温开始烧结");
                 AudioManage.Instance.PlayMusicSource("正在升温开始烧结", 0.5f);
                 //烧结
@@ -252,14 +253,15 @@ public class ShaojierLuTestManlag : MonoBehaviour
         UIManage.Instance.SetHint("正在降温...");
         AudioManage.Instance.PlayMusicSource("正在降温", 0.5f);
         SetLight(0, 7);
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
-            UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
-        else
-            UIManage.Instance.changeDataManager.StartChange(0, 120, 7, "冷却时间", "min", null);
+        //if (Application.platform != RuntimePlatform.WebGLPlayer)
+        //    UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
+        //else
+        //    UIManage.Instance.changeDataManager.StartChange(0, 120, 7, "冷却时间", "min", null);
+        UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
         StartCoroutine(UIManage.Instance.enumerator(7, () =>
         {
-            if (Application.platform != RuntimePlatform.WebGLPlayer)
-                UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
+            //if (Application.platform != RuntimePlatform.WebGLPlayer)
+            UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
             UIManage.Instance.SetHint("降温完成，前往出料口点击出料门进行出料运输");
             AudioManage.Instance.PlayMusicSource("降温完成，前往出料口点击出料门进行出料运输", 0.5f);
             GetManager.Instance.ControlFlow.SetTestProgress(7);

@@ -13,6 +13,7 @@ public class PlayerAutoMove : MonoBehaviour
     private bool isPauseAutoPlay;
     public float MaxPauseTime = 2f;
     private float pauseTime;
+    private bool dontNeedPause; 
 
     public float CheckDistance = 0.2f;
     public float CheckAngle = 60f;
@@ -69,7 +70,7 @@ public class PlayerAutoMove : MonoBehaviour
         OnMoveEndAction = onMoveEnd;
     }
 
-    public void DelayAutoMove(float delay = 2f)
+    public void DelayAutoMove(float delay)
     {
         StartCoroutine(DelayStartMove(delay));
     }
@@ -107,11 +108,11 @@ public class PlayerAutoMove : MonoBehaviour
     {
         isAutoPlay = false;
         targetTrans = null;
+        dontNeedPause = false;
     }
 
     IEnumerator StartAutoTrans() {
         Vector2 directionDifference = OverlookHeight(targetTrans.position - transform.position);
-        Debug.Log(directionDifference.magnitude);
         //与目标距离太进则直接进入第三阶段
         if (directionDifference.magnitude > CheckDistance)
         {
@@ -158,9 +159,20 @@ public class PlayerAutoMove : MonoBehaviour
     }
 
     private void PauseAutoPlay() {
-        pauseTime = MaxPauseTime;
-        isPauseAutoPlay = true;
         StopLastAutoPlayCor();
+        if (dontNeedPause)
+        {
+            StopAutoPlay();
+        }
+        else
+        {
+            pauseTime = MaxPauseTime;
+            isPauseAutoPlay = true;
+        }
+    }
+
+    public void DontNeedPause() {
+        dontNeedPause = true;
     }
 
     private bool CanSeeTarget() {

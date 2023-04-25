@@ -1381,6 +1381,7 @@ MonoBehaviour:
   game1: {fileID: 7629035487491783161}
   text: {fileID: 1571764063}
   audiosource1: {fileID: 502511148}
+  GuideButton: {fileID: 2033123126}
 --- !u!82 &502511148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1806,6 +1807,7 @@ GameObject:
   - component: {fileID: 659198879}
   - component: {fileID: 659198881}
   - component: {fileID: 659198880}
+  - component: {fileID: 659198882}
   m_Layer: 5
   m_Name: "\u89C6\u98912"
   m_TagString: Untagged
@@ -1872,6 +1874,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659198878}
   m_CullTransparentMesh: 0
+--- !u!114 &659198882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659198878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af2d602debf59a45a9b80d7e2de8cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VideoName: WeChat_20221223141636.mp4
 --- !u!1 &724751318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2375,7 @@ GameObject:
   - component: {fileID: 998968072}
   - component: {fileID: 998968071}
   - component: {fileID: 998968070}
+  - component: {fileID: 998968073}
   m_Layer: 5
   m_Name: RawImage (1)
   m_TagString: Untagged
@@ -2457,6 +2473,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998968068}
   m_CullTransparentMesh: 0
+--- !u!114 &998968073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998968068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af2d602debf59a45a9b80d7e2de8cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VideoName: WeChat_20221223141636.mp4
 --- !u!1 &1003502328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4059,7 +4088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2033123127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4166,6 +4195,7 @@ GameObject:
   - component: {fileID: 2121306119}
   - component: {fileID: 2121306118}
   - component: {fileID: 2121306120}
+  - component: {fileID: 2121306121}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -4263,6 +4293,19 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &2121306121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121306116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af2d602debf59a45a9b80d7e2de8cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VideoName: WeChat_20221223141636.mp4
 --- !u!4 &495145664421494673
 Transform:
   m_ObjectHideFlags: 0
@@ -4312,7 +4355,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495145664421494678}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 24ead41672c217d46a5744eca9fdcfec, type: 2}
   m_CullingMode: 0
@@ -5287,7 +5330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerView: {fileID: 1539846151}
   moveSpeed: 3
-  angularSpeed: 60
+  angularSpeed: 30
   jumpForce: 200
   horizontalRotateSensitivity: 10
   verticalRotateSensitivity: 5
@@ -5410,6 +5453,7 @@ GameObject:
   - component: {fileID: 7629035487491783160}
   - component: {fileID: 7629035487491783142}
   - component: {fileID: 7629035487491783143}
+  - component: {fileID: 7629035487491783162}
   m_Layer: 5
   m_Name: "\u89C6\u9891"
   m_TagString: Untagged
@@ -5417,6 +5461,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &7629035487491783162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629035487491783161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af2d602debf59a45a9b80d7e2de8cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VideoName: "12\u670822\u65E5(1).mp4"
 --- !u!23 &8796106431096469136
 MeshRenderer:
   m_ObjectHideFlags: 0

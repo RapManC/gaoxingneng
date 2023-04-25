@@ -38,10 +38,15 @@ public class MainSceneGuide : MonoBehaviour
         
     }
 
-    public void AutoMoveByIndex(int index)
+    public void AutoMoveByIndex(int index, float delay = 2f)
     {
         PlayerAuotMove.SetAutoPlayTarget(TargetTrans[index]);
-        PlayerAuotMove.DelayAutoMove(2);
+        PlayerAuotMove.DelayAutoMove(delay);
+    }
+
+    public void AutoMoveDontNeedPause()
+    {
+        PlayerAuotMove.DontNeedPause();
     }
 
     public void StopAutoMove()

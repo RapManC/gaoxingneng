@@ -50,7 +50,6 @@ public class NewRawImage : RawImage, IPointerClickHandler
             //获取在预览映射相机viewport内的坐标（坐标比例）
             float p_x = ClickPosInRawImg.x / p_imageWidth;
             float p_y = ClickPosInRawImg.y / p_imageHeight;
-            Debug.Log(new Vector2(p_x, p_y));
 
             //从预览映射相机视口坐标发射线
             Ray ray = PreviewCamera.ViewportPointToRay(new Vector2(p_x, p_y));
@@ -58,7 +57,7 @@ public class NewRawImage : RawImage, IPointerClickHandler
             if (Physics.Raycast(ray, out hitInfo))
             {
                 Button button = hitInfo.collider.GetComponent<Button>();
-                if (button != null)
+                if (button != null && button.interactable)
                     button.onClick.Invoke();
             }
         }

@@ -293,24 +293,25 @@ public class QingporuTestManlag :MonoBehaviour
         Canvas3Dto2D.Instance.SetCanvasActive(false);
         UIManage.Instance.SetHint("冷却已启动，等待冷却中..");
         AudioManage.Instance.PlayMusicSource("冷却已启动，等待冷却中..", 0.5f);
-        if (Application.platform != RuntimePlatform.WebGLPlayer)
-        {
-            UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
-        }
-        else
-        {
-            UIManage.Instance.changeDataManager.StartChange(0, 240, 9, "冷却时间", "min", ()=> {
-                Material material = Resources.Load<Material>("213309cwekez2ke9yx6pu6");
-                material.SetColor("_Color", Color.white);
-            });
-        }
+        //if (Application.platform != RuntimePlatform.WebGLPlayer)
+        //{
+        //    UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //    UIManage.Instance.changeDataManager.StartChange(0, 240, 9, "冷却时间", "min", ()=> {
+        //        Material material = Resources.Load<Material>("213309cwekez2ke9yx6pu6");
+        //        material.SetColor("_Color", Color.white);
+        //    });
+        //}
+        UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(true);
 
         Transform lights = transform.Find("Qingporu/Lights").transform;
         lights.Find("Light1").GetComponent<Light>().DOIntensity(0, 10);
         lights.Find("Light2").GetComponent<Light>().DOIntensity(0, 10).OnComplete(() =>
         {
-            if (Application.platform != RuntimePlatform.WebGLPlayer)
-                UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
+            //if (Application.platform != RuntimePlatform.WebGLPlayer)
+            UIManage.Instance.transform.Find("Shiyan_UI/Renque_UI").gameObject.SetActive(false);
             UIManage.Instance.SetHint("冷却完毕，前往出料口点击出料门进行出料操作");
             AudioManage.Instance.PlayMusicSource("冷却完毕，前往出料口点击出料门进行出料操作", 0.5f);
             UIManage.Instance.SetTishiPos("QPLShangliao");

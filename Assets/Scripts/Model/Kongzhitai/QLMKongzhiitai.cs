@@ -42,7 +42,6 @@ public class QLMKongzhiitai : MonoBehaviour
     public void ShowCanvas()
     {
         Canvas_3D.gameObject.SetActive(true);
-        Canvas3Dto2D.Instance.SetCameraTrans(2);
     }
     /// <summary>
     /// 加氮气

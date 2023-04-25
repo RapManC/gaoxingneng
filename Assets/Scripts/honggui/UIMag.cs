@@ -21,6 +21,7 @@ public class UIMag : MonoBehaviour
     private int i = 0;
     private List<string> wenzxi = new List<string>();
 
+    public GameObject GuideButton;
 
     private void Awake()
     {
@@ -82,6 +83,7 @@ public class UIMag : MonoBehaviour
             if (i == 3)
             {
                 text.gameObject.SetActive(false);
+                GuideButton.gameObject.SetActive(true);
             }
         }
     }

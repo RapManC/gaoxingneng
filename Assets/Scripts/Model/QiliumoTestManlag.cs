@@ -10,6 +10,7 @@ public class QiliumoTestManlag : MonoBehaviour
     ParticleSystem _texiaoShangliao;
     ParticleSystem _texiaoPoshui;
     ParticleSystem _texiaoZuanliao;
+    ParticleSystem _texiaoDouLi;
     PipeFlow jiadanqi;
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class QiliumoTestManlag : MonoBehaviour
         _texiaoShangliao = transform.Find("Shangliao_Texiao").GetComponent<ParticleSystem>();
         _texiaoPoshui = transform.Find("Poshui_Texiao").GetComponent<ParticleSystem>();
         _texiaoZuanliao = transform.Find("Zuangliao_Texiao").GetComponent<ParticleSystem>();
+        _texiaoDouLi= transform.Find("doulideliao").GetComponent<ParticleSystem>();
         jiadanqi = transform.Find("Jidanqi").GetComponent<PipeFlow>();
     }
     /// <summary>
@@ -58,12 +60,13 @@ public class QiliumoTestManlag : MonoBehaviour
                 UIManage.Instance.SetHint("倒料结束，请前往控制台点击加氮气按键。");
                 AudioManage.Instance.PlayMusicSource("倒料结束，请前往控制台点击加氮气按键。", 0.5f);
                 UIManage.Instance.SetTishiPos("QLMKongzhitai");
-                MainSceneGuide.Instance.AutoMoveByIndex(6);
-                _texiaoPoshui.gameObject.SetActive(true);
+                MainSceneGuide.Instance.AutoMoveByIndex(6, 0);
+                Canvas3Dto2D.Instance.SetCameraTrans(2);
                 _texiaoShangliao.gameObject.SetActive(false);
                 UIManage.Instance.SetButtonIntera(GetManager.Instance.QLMKongzhiitai.Qingporu_ButtonPather.Find("Jiadanqi").GetComponent<Button>(), true);
                 GetManager.Instance.ControlFlow.SetTestProgress(1);
-                StartCoroutine(UIManage.Instance.enumerator(0, () =>_texiaoPoshui.Pause()));
+                _texiaoDouLi.gameObject.SetActive(true);
+                StartCoroutine(UIManage.Instance.enumerator(0, () => _texiaoDouLi.Pause()));
             }));
         }));
     }
@@ -119,14 +122,15 @@ public class QiliumoTestManlag : MonoBehaviour
         //        }));
         //    });
 
-        Canvas3Dto2D.Instance.SetCanvasActive(false);
         Step step = ScoreManager._Instance.GetStep(StepType.靶式气流磨调节分选轮转速);
         step.startTime = ScoreManager.GetCurveTimeLong();
 
         UIManage_3D._Instance.StartInput(GongduanType.气流磨, "分选轮转速", () => {
+            Canvas3Dto2D.Instance.SetCanvasActive(false);
             UIManage.Instance.SetHint("你设置的分选轮转速为：" + UIManage_3D._Instance.GetNowValue() + "r/min.正在进行破碎。");
             AudioManage.Instance.PlayMusicSource("正在进行破碎。", 0.5f);
-            _texiaoPoshui.Play();
+            _texiaoPoshui.gameObject.SetActive(true);
+            _texiaoDouLi.Play();
             AudioManager.SetAudio(AudioManager.BGAudio, "破碎");
             step.endTime = ScoreManager.GetCurveTimeLong();
             int score = ScoreManager._Instance.GetParameterDataScore(link.靶式气流磨工段, "分选轮转速");
@@ -145,6 +149,7 @@ public class QiliumoTestManlag : MonoBehaviour
                 transform.Find("QLMZhenkongqing2").GetComponent<ModelClick>().SetMayClick();
                 GetManager.Instance.ControlFlow.SetTestProgress(3);
                 AudioManager.BGAudio.Pause();
+                _texiaoPoshui.gameObject.SetActive(false);
             }));
         });
     }

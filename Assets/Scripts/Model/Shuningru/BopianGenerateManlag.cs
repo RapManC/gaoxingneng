@@ -25,7 +25,9 @@ public class BopianGenerateManlag : MonoBehaviour
             if (timeWait >= 1 / GenerateSpeed)
             {
                 int index= Random.Range(0, BiaopianList.Count);
-                Instantiate(BiaopianList[index], this.transform).SetActive(true);
+                GameObject baopian = Instantiate(BiaopianList[index], this.transform);
+                baopian.transform.localPosition += Random.insideUnitSphere * 0.3f;
+                baopian.SetActive(true);
                 timeWait = 0;
                 //if(transform.parent.name== "ShuningLuParent")
             }

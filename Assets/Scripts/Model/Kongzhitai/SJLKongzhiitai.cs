@@ -38,7 +38,6 @@ public class SJLKongzhiitai : MonoBehaviour
     public void ShowCanvas()
     {
         Canvas_3D.gameObject.SetActive(true);
-        Canvas3Dto2D.Instance.SetCameraTrans(3);
     }
     /// <summary>
     /// 抽真空

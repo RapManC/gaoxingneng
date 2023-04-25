@@ -45,6 +45,8 @@ public class SNLKongzhitai : MonoBehaviour
         UIManage.Instance.SetButtonIntera(Shuningru_ButtonPather.Find("Zhidongfangliao").GetComponent<Button>(), true);
 
         Canvas3Dto2D.Instance.SetCameraTrans(0);
+        MainSceneGuide.Instance.AutoMoveByIndex(18, 0);
+        MainSceneGuide.Instance.AutoMoveDontNeedPause();
     }
     /// <summary>
     /// 设置速凝炉按键
