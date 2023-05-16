@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GuideButtons : MonoBehaviour
@@ -19,13 +20,22 @@ public class GuideButtons : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener(()=> {
                 HongguiGuide.Instance.OnClickGuideButton(index);
                 button.GetComponent<Image>().sprite = _sprite;
+                CheckModelLearnState(index);
             });
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    List<int> learnHaibaoIndexList = new List<int>() { 0, 1, 2, 3 };
+    void CheckModelLearnState(int index)
     {
-        
+        if (learnHaibaoIndexList.Contains(index))
+        {
+            learnHaibaoIndexList.Remove(index);
+            if (learnHaibaoIndexList.Count == 0)
+            {
+                LoadSceneManager.Instance.SetButtonActive("进入实验介绍", "Jiesao_Button");
+            }
+        }
     }
 }

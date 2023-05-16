@@ -13,6 +13,7 @@ public class JiancheTestManlag : MonoBehaviour
     Transform kaiguan;
 
     Dictionary<string, string> TestResults = new Dictionary<string, string>();
+    string nvtiepengResult; 
     private void Awake()
     {
         material = Resources.Load<Material>("Material/Kuai");
@@ -90,7 +91,7 @@ public class JiancheTestManlag : MonoBehaviour
     void InitTestResults()
     {
         int _brValue = Random.Range(1290, 1325);
-        string _brValueStr = (_brValue / 1000).ToString("F2");
+        string _brValueStr = ((float)_brValue / 1000f).ToString("F2");
         TestResults.Add("Br", _brValueStr + "T");
         int _hcjValue = Random.Range(789, 953);
         TestResults.Add("Hcj", _hcjValue + "KA/m");
@@ -100,7 +101,7 @@ public class JiancheTestManlag : MonoBehaviour
         {
             TestResults.Add(v.Key, v.Value.ToString() + "%");
         }
-        TestResults.Add("Nd2Fe14B", DataManager.Instance.Xitupeizhi + "wt.%");
+        nvtiepengResult = DataManager.Instance.Xitupeizhi + "wt.%";
         Debug.Log(TestResults.Count);
     }
     void SetTestResultsUI(bool isPingmu)
@@ -148,6 +149,15 @@ public class JiancheTestManlag : MonoBehaviour
             go.SetActive(true);
             Debug.Log(v.Key);
         }
+
+        if (nvtiepengResult != null)
+        {
+            Transform nvtiepeng = taegtTran.Find("Nvtiepeng");
+            nvtiepeng.transform.Find("Image/Text").GetComponent<Text>().text = nvtiepengResult;
+            nvtiepeng.SetAsLastSibling();
+            nvtiepeng.gameObject.SetActive(true);
+        }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(taegtTran as RectTransform);
 
     }

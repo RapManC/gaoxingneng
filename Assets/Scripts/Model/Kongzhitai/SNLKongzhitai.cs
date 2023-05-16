@@ -47,6 +47,8 @@ public class SNLKongzhitai : MonoBehaviour
         Canvas3Dto2D.Instance.SetCameraTrans(0);
         MainSceneGuide.Instance.AutoMoveByIndex(18, 0);
         MainSceneGuide.Instance.AutoMoveDontNeedPause();
+        ShuningruTestManlag.Instance.Toming();
+        GetManager.Instance.Canvas.Find("Shiyan_UI/Huihu_Button").gameObject.SetActive(true);
     }
     /// <summary>
     /// 设置速凝炉按键
@@ -72,7 +74,6 @@ public class SNLKongzhitai : MonoBehaviour
     {
         UIManage.Instance.SetButtonIntera(Shuningru_ButtonPather.Find("Cailiaolonglian").GetComponent<Button>(), false);
         ShuningruTestManlag.Instance.JaireQidong();
-        ShuningruTestManlag.Instance.Toming();
     }
     /// <summary>
     /// 点击包加热

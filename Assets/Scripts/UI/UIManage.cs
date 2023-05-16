@@ -121,7 +121,7 @@ public class UIManage : MonoBehaviour
     /// </summary>
     public void OnNextHongGui()
     {
-        StartCoroutine(LoadScene("honggui"));
+        StartCoroutine(LoadScene("LoadMovie"));
     }
 
 
@@ -185,6 +185,7 @@ public class UIManage : MonoBehaviour
             temp.gameObject.SetActive(temp.name == "Panel_UI" || temp.name == "Input_UI" || temp.name == "Shuju" || temp.name == "MaskLoad");
         }
         OnExitXuexi();
+        LoadSceneManager.Instance.HideNextButton();
     }
     /// <summary>
     /// 退出实验
@@ -253,7 +254,23 @@ public class UIManage : MonoBehaviour
                 SetXuexiHide("你可点击查看部分结构详细信息");
                 break;
         }
+
+        CheckModelLearnState(go.name);
     }
+
+    List<string> learnModelNameList = new List<string>() { "Gongnen_UI", "Yuanli_UI", "Jiegou_UI" };
+    void CheckModelLearnState(string name)
+    {
+        if (learnModelNameList.Contains(name))
+        {
+            learnModelNameList.Remove(name);
+            if(learnModelNameList.Count == 0)
+            {
+                LoadSceneManager.Instance.SetButtonActive("进入实验操作", "Caozhuo_Button");
+            }
+        }
+    }
+
     /// <summary>
     /// 设置学习模型的头文字
     /// </summary>

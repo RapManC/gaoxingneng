@@ -48,16 +48,14 @@ public class HTTP : MonoBehaviour
         }
     }
 
-    [Obsolete]
-    void Start()
-    {
+    public void StartInit() {
         if (IsFirst && !IsTest)
         {
             Init();
             InitExperimentalData();
         }
-
     }
+
     void InitExperimentalData()
     {
         ScoreManager._Instance._experimentalData.username = UserName;
@@ -67,7 +65,6 @@ public class HTTP : MonoBehaviour
         ScoreManager._Instance._experimentalData.originId = "未传递";
     }
 
-    [Obsolete]
     void Init()
     {
         Debug.Log("当前平台" + Application.platform);
@@ -218,7 +215,7 @@ public class HTTP : MonoBehaviour
         }
         else
         {
-            SetMaskLoad.Instance.StartMaskText("用户数据获取异常，请重试......", true, Start, SetMaskLoad.LoadState.Error);
+            SetMaskLoad.Instance.StartMaskText("用户数据获取异常，请重试......", true, StartInit, SetMaskLoad.LoadState.Error);
         }
     }
     public void GetWebGLToken(string json)

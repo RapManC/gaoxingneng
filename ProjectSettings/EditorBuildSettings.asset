@@ -5,22 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Mian.unity
     guid: 768d553cb533bb04f809e17380db7c1e
-  - enabled: 0
-    path: Assets/XPVideo/Scene/UITest.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/LoadMovie.unity
+    guid: 32b87776220a3cd44a73a3b823c54003
   - enabled: 1
     path: Assets/Scenes/honggui.unity
-    guid: 5d0dd816b42682242b1656ab652044a3
+    guid: ca49a4355c31d684a846e360bb6eab5b
   m_configObjects: {}

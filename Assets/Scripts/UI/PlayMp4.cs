@@ -13,12 +13,16 @@ public class PlayMp4 : MonoBehaviour
     {
         video = GetComponentInChildren<VideoPlayer>();
         string mPath = Path.Combine(Application.streamingAssetsPath, VideoName);
-        mPath = mPath.Replace("/file:/", "file://");
         video.url = mPath;
     }
 
     private void OnEnable()
     {
+        StartCoroutine(DelayToPlay());
+    }
+
+    IEnumerator DelayToPlay() {
+        yield return null;
         video.Play();
     }
 }

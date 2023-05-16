@@ -23,6 +23,8 @@ public class UIMag : MonoBehaviour
 
     public GameObject GuideButton;
 
+    public Button NextButton;
+
     private void Awake()
     {
         anim = GameObject.FindGameObjectWithTag("列车").GetComponent<Animator>();
@@ -37,6 +39,7 @@ public class UIMag : MonoBehaviour
         StartCoroutine(SetText());
         btn1.onClick.AddListener(()=> {
             StartCoroutine(LoadScene("Mian"));
+            LoadSceneManager.Instance.HideNextButton();
         });
         btn2.onClick.AddListener(()=> {
             tips_game.SetActive(true);

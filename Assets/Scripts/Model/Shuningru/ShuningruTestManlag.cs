@@ -58,9 +58,9 @@ public class ShuningruTestManlag : MonoBehaviour
         {
             timeLog += Time.deltaTime;
             color_r = timeLog / HezhiBiansheTime * 50;
-            color_r = Mathf.Clamp(color_r, 0, 50);
+            color_r = Mathf.Clamp(color_r, 0, 100);
             heziMaterial.SetColor("_EmissionColor", new Color(color_r, 0, 0) / 255);
-            if (color_r == 50)
+            if (color_r == 100)
             {
                 isHeziJiare = false;
             }
@@ -103,8 +103,23 @@ public class ShuningruTestManlag : MonoBehaviour
             AudioManager.SetAudio(AudioManager.CanvasAudio, "机械臂");
         }));
             StartCoroutine(UIManage.Instance.enumerator(16f, () => {  dianji.Find("材料").GetComponent<Animator>().enabled = true; }));
-        StartCoroutine(UIManage.Instance.enumerator(20f, () => { 
+        StartCoroutine(UIManage.Instance.enumerator(19.87f, () => { 
             dianji.GetComponent<Animator>().enabled = false;
+
+            GameObject cailiao = transform.Find("Diaoji/材料").gameObject;
+            cailiao.GetComponent<Animator>().enabled = false;
+            List<GameObject> goList = new List<GameObject>();
+            foreach (Transform temp in cailiao.transform)
+            {
+                goList.Add(temp.gameObject);
+            }
+            foreach (GameObject temp in goList)
+            {
+                temp.transform.parent = GetManager.Instance.ShuningLuParent.Find("CailiaoLonghua").transform;
+                temp.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            cailiao.SetActive(false);
+            GetManager.Instance.ShuningLuParent.Find("CailiaoLonghua").gameObject.SetActive(true);
         }));
     }
     //合盖启动
@@ -113,19 +128,6 @@ public class ShuningruTestManlag : MonoBehaviour
         StartCoroutine(UIManage.Instance.enumerator(0, () => { UIManage.Instance.SetHint("机械臂正在合盖，请稍等..."); }));
         AudioManage.Instance.PlayMusicSource("机械臂正在合盖，请稍等...", 0.5f);
         AudioManager.SetAudio(AudioManager.CanvasAudio, "机械臂");
-        GameObject cailiao = transform.Find("Diaoji/材料").gameObject;
-        cailiao.GetComponent<Animator>().enabled = false;
-        List<GameObject> goList = new List<GameObject>();
-        foreach (Transform temp in cailiao.transform)
-        {
-            goList.Add(temp.gameObject);
-        }
-        foreach (GameObject temp in goList)
-        {
-            temp.transform.parent = GetManager.Instance.ShuningLuParent.Find("CailiaoLonghua").transform;
-            temp.GetComponent<Rigidbody>().isKinematic = false;
-        }
-        cailiao.SetActive(false);
         GameObject.Find("Diaoji").transform.DOLocalMoveX(-4.22f, 3);
         StartCoroutine(UIManage.Instance.enumerator(6, () =>
         {
@@ -133,7 +135,6 @@ public class ShuningruTestManlag : MonoBehaviour
             AudioManage.Instance.PlayMusicSource("投料操作完成，点击屏幕“材料熔炼”按钮。",0.5f);
             GetManager.Instance.Cameras.Find("ShunigruCamera").gameObject.SetActive(false);
             GetManager.Instance.Canvas.Find("Shiyan_UI/MiniCanmera_UI").gameObject.SetActive(false);
-            GetManager.Instance.ShuningLuParent.Find("CailiaoLonghua").gameObject.SetActive(true);
             UIManage.Instance.SetButtonIntera(SuningruButtons.Find("Cailiaolonglian").GetComponent<Button>(), true);
             Canvas3Dto2D.Instance.SetCanvasActive(true);
         }));
@@ -145,7 +146,6 @@ public class ShuningruTestManlag : MonoBehaviour
         {
             tran.gameObject.SetActive(true);
         }
-        GetManager.Instance.Canvas.Find("Shiyan_UI/Huihu_Button").gameObject.SetActive(true);
         GetManager.Instance.ControlFlow.SetTestProgress(2);
         UIManage.Instance.SetHint("加热启动前请先在控制台屏幕调节温度。");
         AudioManage.Instance.PlayMusicSource("加热启动前请先在控制台屏幕调节温度。", 0.5f);
